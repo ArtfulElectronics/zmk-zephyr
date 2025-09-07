@@ -41,7 +41,7 @@ static int i2c_nrfx_twi_transfer(const struct device *dev,
 				 struct i2c_msg *msgs,
 				 uint8_t num_msgs, uint16_t addr)
 {
-	LOG_ERR("AE i2c_nrfx_twi_transfer %d messages for address %d", num_msgs, addr);
+	// LOG_ERR("AE i2c_nrfx_twi_transfer %d messages for address %d", num_msgs, addr);
 
 	const struct i2c_nrfx_twi_config *config = dev->config;
 	struct i2c_nrfx_twi_data *data = dev->data;
