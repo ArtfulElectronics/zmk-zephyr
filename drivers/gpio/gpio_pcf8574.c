@@ -175,6 +175,9 @@ static int pcf8574_port_set_raw(const struct device *dev, uint8_t mask, uint8_t 
 	tx_buf |= (value & mask);
 	tx_buf ^= toggle;
 
+	// Pins configured for inputs should be kept HIGH
+	tx_buf |= (~drv_data->pins_cfg.configured_as_outputs);
+
 	rc = i2c_write_dt(&drv_cfg->i2c, &tx_buf, sizeof(tx_buf));
 
 	if (rc != 0) {
